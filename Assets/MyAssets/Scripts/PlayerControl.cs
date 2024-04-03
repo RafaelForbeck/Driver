@@ -2,6 +2,7 @@ using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
@@ -45,5 +46,16 @@ public class PlayerControl : MonoBehaviour
     public void TurnOnControl()
     {
         enabled = true;
+    }
+
+    public void SetController(bool controllerOn)
+    {
+        if (controllerOn)
+        {
+            TurnOnControl();
+        } else
+        {
+            TurnOffControl();
+        }
     }
 }
