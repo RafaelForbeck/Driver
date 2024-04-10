@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Amuleto
   sprite: {fileID: 21300000, guid: 13b37dc2c70632d4aa7c87c7aed6ad0f, type: 3}
+  count: 1
