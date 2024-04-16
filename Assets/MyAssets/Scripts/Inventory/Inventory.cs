@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -30,6 +31,7 @@ public class Inventory : MonoBehaviour
             }
         }
 
+        item.count++;
         InstantiateItemButton(item);
     }
 
@@ -45,5 +47,17 @@ public class Inventory : MonoBehaviour
     public void UseItem(Item item)
     {
         print("Estou dentro do script do inventário e o item é o " + item.name);
+
+        if (item.count <= 0)
+        {
+            RemoveItem(item);
+        }
+    }
+
+    private void RemoveItem(Item item)
+    {
+        ItemButton itemButton = itemButtons.First(x => x.item == item);
+        itemButtons.Remove(itemButton);
+        Destroy(itemButton.gameObject);
     }
 }

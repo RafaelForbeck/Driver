@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bota
   sprite: {fileID: 21300000, guid: 3ccaa788876d7994ab880ff62ff9f4d8, type: 3}
-  count: 2
+  count: 0

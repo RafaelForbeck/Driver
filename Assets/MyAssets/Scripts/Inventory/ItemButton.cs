@@ -16,19 +16,26 @@ public class ItemButton : MonoBehaviour
     {
         nameText.text = item.name;
         image.sprite = item.sprite;
-        countText.text = item.count.ToString();
         this.item = item;
         this.action = action;
+        UpdateCountText();
     }
 
     public void AddCount()
     {
         item.count++;
-        countText.text = item.count.ToString();
+        UpdateCountText();
     }
 
     public void UseItem()
     {
+        item.count--;
         action(item);
+        UpdateCountText();
+    }
+
+    private void UpdateCountText()
+    {
+        countText.text = item.count.ToString();
     }
 }
