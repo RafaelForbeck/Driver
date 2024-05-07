@@ -9,7 +9,7 @@ internal class PlayerBackState : PlayerBaseState
 
     public override void ExitState()
     {
-        player.GoToIdleAnimation();
+        player.animator.SetTrigger("idle");
     }
 
     public override void Update()

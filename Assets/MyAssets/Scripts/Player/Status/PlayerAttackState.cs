@@ -1,8 +1,10 @@
-﻿internal class PlayerAttackState : PlayerBaseState
+﻿using UnityEngine;
+
+internal class PlayerAttackState : PlayerBaseState
 {
     public override void EnterState()
     {
-        player.Attack();
+        player.animator.SetTrigger("attack");
     }
 
     public override void ExitState()

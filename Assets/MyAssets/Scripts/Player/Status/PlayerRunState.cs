@@ -6,7 +6,7 @@ public class PlayerRunState : PlayerBaseState
 {
     public override void EnterState()
     {
-        player.Run();
+        player.animator.SetTrigger("run");
     }
 
     public override void ExitState()

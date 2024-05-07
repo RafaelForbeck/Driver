@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
     public PlayerBaseState currentState;
 
     public Transform target;
@@ -39,16 +39,6 @@ public class Player : MonoBehaviour
         currentState.Update();
     }
 
-    internal void Run()
-    {
-        animator.SetTrigger("run");
-    }
-
-    internal void Attack()
-    {
-        animator.SetTrigger("attack");
-    }
-
     internal void Back()
     {
         ChangeState(new PlayerBackState());
@@ -57,10 +47,5 @@ public class Player : MonoBehaviour
     internal void GoToIdle()
     {
         ChangeState(new PlayerIdleState());
-    }
-
-    internal void GoToIdleAnimation()
-    {
-        animator.SetTrigger("idle");
     }
 }
