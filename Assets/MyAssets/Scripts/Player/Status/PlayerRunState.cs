@@ -22,6 +22,7 @@ public class PlayerRunState : PlayerBaseState
     private void Move()
     {
         var vector = player.target.position - player.transform.position;
+        vector = new Vector3(vector.x, 0, vector.z);
         var direction = vector.normalized;
         var displacement = direction * player.speed * Time.deltaTime;
         player.transform.position += displacement;
