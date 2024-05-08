@@ -48,4 +48,14 @@ public class Player : MonoBehaviour
     {
         ChangeState(new PlayerIdleState());
     }
+
+    internal void HitMark()
+    {
+        var targetLife = target.gameObject.GetComponent<Life>();
+        if (targetLife == null) {
+            return;
+        }
+
+        targetLife.TakeDamage(10);
+    }
 }

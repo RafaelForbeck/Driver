@@ -23,7 +23,8 @@ public class Life : MonoBehaviour
         UpdateBar();
         if (currentLife == 0)
         {
-            // Player morreu
+            // personagem morreu
+            Destroy(gameObject);
         }
     }
 
