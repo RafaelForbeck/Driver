@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public float speed;
     public Vector3 startPoint;
 
+    public WeaponBase currentWeapon;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -56,6 +58,6 @@ public class Player : MonoBehaviour
             return;
         }
 
-        targetLife.TakeDamage(10);
+        targetLife.TakeDamage(currentWeapon.GetDamage());
     }
 }

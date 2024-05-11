@@ -4,7 +4,7 @@ internal class PlayerAttackState : PlayerBaseState
 {
     public override void EnterState()
     {
-        player.animator.SetTrigger("attack");
+        player.currentWeapon.Attack(player);
     }
 
     public override void ExitState()
