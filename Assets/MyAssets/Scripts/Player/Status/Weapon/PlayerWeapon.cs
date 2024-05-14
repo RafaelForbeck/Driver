@@ -15,6 +15,7 @@ public class PlayerWeapon : MonoBehaviour
 
         weapons.Add(new PunchWeapon());
         weapons.Add(new KickWeapon());
+        weapons.Add(new HealingWeapon());
 
         player.currentWeapon = weapons.First();
     }

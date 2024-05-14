@@ -60,4 +60,15 @@ public class Player : MonoBehaviour
 
         targetLife.TakeDamage(currentWeapon.GetDamage());
     }
+
+    internal void HealingMark()
+    {
+        var targetLife = target.gameObject.GetComponent<Life>();
+        if (targetLife == null)
+        {
+            return;
+        }
+
+        targetLife.HealingHealth(currentWeapon.GetDamage());
+    }
 }
