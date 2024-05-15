@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Transform target;
     public float speed;
     public Vector3 startPoint;
+    public WeaponBase currentWeapon;
 
     private void Awake()
     {
@@ -56,6 +57,17 @@ public class Player : MonoBehaviour
             return;
         }
 
-        targetLife.TakeDamage(10);
+        targetLife.TakeDamage(currentWeapon.GetDamage());
+    }
+
+    internal void HealingMark()
+    {
+        var targetLife = target.gameObject.GetComponent<Life>();
+        if (targetLife == null)
+        {
+            return;
+        }
+
+        targetLife.HealingHealth(currentWeapon.GetDamage());
     }
 }
