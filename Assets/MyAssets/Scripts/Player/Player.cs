@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public float speed;
     public Vector3 startPoint;
     public WeaponBase currentWeapon;
+    public Action finishTurn;
 
     private void Awake()
     {
@@ -69,5 +70,11 @@ public class Player : MonoBehaviour
         }
 
         targetLife.HealingHealth(currentWeapon.GetDamage());
+    }
+
+    public void FinishTurn()
+    {
+        print("Finish turn");
+        finishTurn();
     }
 }

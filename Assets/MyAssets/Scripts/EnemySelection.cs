@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySelection : MonoBehaviour
@@ -47,8 +49,20 @@ public class EnemySelection : MonoBehaviour
 
     void UnselectAll()
     {
+        enemies = enemies.Where(x => x != null).ToList();
         foreach (var enemy in enemies) {
             enemy.GetComponent<MeshRenderer>().material = unselecetedMaterial;
         }
+    }
+
+    public void DisableSelection()
+    {
+        UnselectAll();
+        enabled = false;
+    }
+
+    public void EnableSelection()
+    {
+        enabled = true;
     }
 }

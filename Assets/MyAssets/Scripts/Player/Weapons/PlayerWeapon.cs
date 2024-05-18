@@ -8,7 +8,7 @@ public class PlayerWeapon : MonoBehaviour
 {
     public Color selectedColor;
     List<WeaponBase> weapons;
-    public List<Image> images;
+    public List<GameObject> buttons;
 
     Player player;
 
@@ -50,14 +50,23 @@ public class PlayerWeapon : MonoBehaviour
     public void ChangeWeapon(int weaponIndex)
     {
         ResetButtonsColor();
-        images[weaponIndex].color = selectedColor;
+        buttons[weaponIndex].GetComponent<Image>().color = selectedColor;
         player.currentWeapon = weapons[weaponIndex];
     }
 
     void ResetButtonsColor()
     {
-        foreach (var image in images) {
-            image.color = Color.white;
+        foreach (var button in buttons) {
+            button.GetComponent<Image>().color = Color.white;
+        }
+    }
+
+    public void SetupButtons(bool enabled)
+    {
+        ResetButtonsColor();
+        foreach(var button in buttons)
+        {
+            button.GetComponent<Button>().enabled = enabled;
         }
     }
 }
