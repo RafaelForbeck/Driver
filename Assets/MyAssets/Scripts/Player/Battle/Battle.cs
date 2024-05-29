@@ -10,7 +10,7 @@ public class Battle : MonoBehaviour
 
     public BattleBase currentState;
 
-    private void Start()
+    private void Awake()
     {
         enemies.endedTurn = EnemyEndedTurn;
         player.endedTurn = PlayerEndedTurn;

@@ -1,14 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySelection : MonoBehaviour
 {
-    public Player player;
-    public List<GameObject> enemies;
+    private Player player;
+    private List<GameObject> enemies;
 
-    public Material selecetedMaterial;
-    public Material unselecetedMaterial;
+    private Material selecetedMaterial;
+    private Material unselecetedMaterial;
+
+    private void Awake()
+    {
+        selecetedMaterial = Resources.Load<Material>("EnemyMateriels/SelectedEnemy");
+        unselecetedMaterial = Resources.Load<Material>("EnemyMateriels/UnselectedEnemy");
+    }
 
     private void Start()
     {
@@ -47,8 +55,15 @@ public class EnemySelection : MonoBehaviour
 
     void UnselectAll()
     {
+        enemies = enemies.Where(x => x != null).ToList();
         foreach (var enemy in enemies) {
             enemy.GetComponent<MeshRenderer>().material = unselecetedMaterial;
         }
+    }
+
+    internal void Setup(GameObject playerGO, List<GameObject> enemiesGO)
+    {
+        player = playerGO.GetComponent<Player>();
+        enemies = enemiesGO;
     }
 }

@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 5
+  speed: 10
   damage: 10
 --- !u!1 &8568718307554033163
 GameObject:
