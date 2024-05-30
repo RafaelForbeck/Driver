@@ -6,6 +6,11 @@ public class PlayerRunState : PlayerBaseState
 {
     public override void EnterState()
     {
+        if (player.target == null)
+        {
+            player.ChangeState(new PlayerIdleState());
+            return;
+        }
         player.animator.SetTrigger("run");
     }
 

@@ -9,14 +9,14 @@ public class Enemies : MonoBehaviour
     private List<EnemyAttack> enemies = new List<EnemyAttack>();
     private Transform target;
     public Action endedTurn;
+    public Action battleEnded;
 
     private void Start()
     {
-        foreach (var enemy in enemies)
-        {
-            enemy.endedTurn = endedTurn;
-            enemy.target = target;
-        }
+        //foreach (var enemy in enemies)
+        //{
+            
+        //}
     }
 
     public void StartTurn()
@@ -24,12 +24,13 @@ public class Enemies : MonoBehaviour
         enemies = enemies.Where(x => x != null).ToList();
         if (enemies.Count == 0)
         {
-            // A batalha acabou
-            print("A batalha acabou");
+            battleEnded();
             return;
         }
         var index = UnityEngine.Random.Range(0, enemies.Count);
         var enemy = enemies[index];
+        enemy.target = target;
+        enemy.endedTurn = endedTurn;
         enemy.Attack();
     }
 

@@ -16,7 +16,7 @@ TagManager:
   - CarCollider
   - Item
   - Enemy
-  - 
+  - EnemyGroup
   - 
   - 
   - 

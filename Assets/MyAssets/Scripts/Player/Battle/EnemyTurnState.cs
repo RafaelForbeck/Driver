@@ -6,7 +6,7 @@ public class EnemyTurnState : BattleBase
 {
     public override void EnterState()
     {
-        battle.enemies.StartTurn();
+        battle.Enemies.StartTurn();
     }
 
     public override void ExitState()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,23 +8,11 @@ public class PlayerManager : MonoBehaviour
     public Player player;
     public PlayerWeapon playerWeapon;
     public PlayerMovement playerMovement;
+    public Action<Enemies> startBattle;
 
     private void Start()
     {
         StartExploring();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            StartBattle();
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            StartExploring();
-        }
     }
 
     public void StartBattle()
@@ -38,5 +27,18 @@ public class PlayerManager : MonoBehaviour
         player.enabled = false;
         playerWeapon.enabled = false;
         playerMovement.enabled = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var enemies = other.GetComponent<Enemies>();
+
+        if (enemies == null)
+        {
+            return;
+        }
+
+        startBattle(enemies);
+        StartBattle();
     }
 }
