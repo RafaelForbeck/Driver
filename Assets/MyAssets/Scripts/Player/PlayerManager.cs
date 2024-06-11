@@ -38,6 +38,8 @@ public class PlayerManager : MonoBehaviour
             return;
         }
 
+        other.GetComponent<Collider>().enabled = false;
+
         startBattle(enemies);
         StartBattle();
     }
